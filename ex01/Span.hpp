@@ -16,6 +16,8 @@ public:
     Span &operator=(const Span &other);
     ~Span();
 
+    unsigned int get_size();
+
     int shortestSpan();
     int longestSpan();
 

@@ -7,6 +7,10 @@ Span::Span(const Span &other)
 {
     *this = other;
 }
+
+unsigned int Span::get_size(){return size;}
+
+
 Span &Span::operator=(const Span &other)
 {
     size = other.size;
@@ -36,10 +40,27 @@ void Span::addNumbers(int number, int rang)
 
 int Span::shortestSpan()
 {
-
+    if (v.size() <= 1)
+        throw std::runtime_error("No shortest span possible");
+    
+    std::vector<int> v_tmp = v;
+    std::sort(v_tmp.begin(), v_tmp.end());
+    int span = v_tmp[1] - v_tmp[0];
+    for (size_t i = 1; i < v_tmp.size() - 1; i++)
+    {
+        int diff = v_tmp[i + 1] - v_tmp[i];
+        if (diff < span)
+            span = diff;
+    }
+    return span;
 }
 
 int Span::longestSpan()
 {
+    if (v.size() <= 1)
+        throw std::runtime_error("No longest span possible");
 
+    std::vector<int> v_tmp = v;
+    std::sort(v_tmp.begin(), v_tmp.end());
+    return (v_tmp.back() - v_tmp.front());
 }
