@@ -3,6 +3,7 @@
 #include <vector>
 #include <iostream>
 
+
 class Span
 {
 private:
@@ -23,4 +24,15 @@ public:
 
     void addNumber(int number);
 	void addNumbers(int number, int rang);
+    template <typename Iterator>
+    void addNumbers(Iterator begin, Iterator end)
+    {
+        while (begin != end)
+        {
+            if (v.size() >= size)
+			    throw std::runtime_error("Limit of vector reached");
+            addNumber(*begin);
+            ++begin;
+        }
+    }
 };
