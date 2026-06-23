@@ -3,12 +3,9 @@
 Span::Span(){}
 Span::~Span(){}
 
-Span::Span(const Span &other)
-{
-    *this = other;
-}
+Span::Span(const Span &other) {*this = other;}
 
-unsigned int Span::get_size(){return size;}
+unsigned int Span::get_size() {return size;}
 
 
 Span &Span::operator=(const Span &other)

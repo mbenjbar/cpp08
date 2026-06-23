@@ -19,3 +19,7 @@ class MutantStack: public std::stack<T>
         const_iterator end() const { return this->c.end();}
 };
 
+
+// typedef typename std::stack<T>::container_type container_type;
+//           -> We use typename to tell the compiler that a dependent name (std::stack<T>::container_type) is a TYPE
+//           -> std::stack<T>::container_type is usually dque
